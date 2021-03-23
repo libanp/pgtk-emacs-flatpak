@@ -155,8 +155,8 @@
             "sources": [
                 {
 		    "type": "git",
-                    "url": "https://github.com/fejfighter/emacs.git",
-		    "branch": "pgtk-nativecomp"
+                    "url": "https://github.com/flatwhatson/emacs.git",
+		    "branch": "pgtk-nativecomp-old"
                 },
                 {
                     "type": "patch",
