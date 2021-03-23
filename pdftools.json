@@ -1,31 +1,7 @@
 {
     "name": "pdftools",
     "modules": [
-	{
-	    "name": "openjpeg",
-	    "buildsystem" : "cmake",
-	    "config-opts" : ["-DCMAKE_INSTALL_PREFIX:PATH=/app"],
-	    "sources": [
-		{
-		    "type": "archive",
-		    "url": "https://github.com/uclouvain/openjpeg/archive/v2.3.0.tar.gz",
-		    "sha256": "3dc787c1bb6023ba846c2a0d9b1f6e179f1cd255172bde9eb75b01f1e6c7d71a"
-		}
-	    ]
-	},
-	
-	{
-	    "name": "poppler",
-	    "buildsystem" : "cmake",
-	    "config-opts" : ["-DCMAKE_INSTALL_PREFIX:PATH=/app", "-DENABLE_XPDF_HEADERS=ON"],
-	    "sources": [
-		{
-		    "type": "archive",
-		    "url": "https://poppler.freedesktop.org/poppler-0.63.0.tar.xz",
-		    "sha256": "27cc8addafc791e1a26ce6acc2b490926ea73a4f89196dd8a7742cff7cf8a111"
-		}
-	    ]
-	},
+    "poppler.json",
 	{
 	    "name": "perl",
 	    "no-autogen": true,
@@ -48,8 +24,8 @@
 	    "sources": [
 		{
 		    "type": "archive",
-		    "url": "https://www.cpan.org/src/5.0/perl-5.26.1.tar.gz",
-		    "sha256": "e763aa485e8dc1a70483dbe6d615986bbf32b977f38016480d68c99237e701dd"
+		    "url": "https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz",
+		    "sha256": "03b693901cd8ae807231b1787798cf1f2e0b8a56218d07b7da44f784a7caeb2c"
 		},
 		{
 		    "type": "script",
@@ -64,16 +40,15 @@
 	{
 	    "name": "pdf-tools",
 	    "buildsystem" : "simple",
-	    "build-commands" : ["make",
-				"mkdir /app/share/emacs/site-lisp/pdftools",
-				"cp -r pdf-tools-0.80/* /app/share/emacs/site-lisp/pdftools/"],
+	    "build-commands" : ["cd server && CFLAGS=\"-fPIE\" ./autobuild",
+				"cp server/epdfinfo /app/bin/"],
 	    "sources": [
 		{
 		    "type": "archive",
-		    "url": "https://github.com/politza/pdf-tools/archive/v0.80.tar.gz",
-		    "sha256": "663d22ce4a56c1eb75a329fa4ab5f77d92c030fcc1deaf4ec95b24356cf3351a"
+		    "url": "https://github.com/politza/pdf-tools/archive/v0.90.tar.gz",
+		    "sha256": "3840d71c112a820b91a336a913599865d96f35dd8cbdf3e8024e54f55ee75d24"
 		}
 	    ]
-	}	
+	}
     ]
-}
+}	
