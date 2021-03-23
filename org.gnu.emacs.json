@@ -188,7 +188,8 @@
                 "/share/icons/hicolor/scalable/mimetypes/emacs-document.svg",
                 "/share/icons/hicolor/scalable/mimetypes/emacs-document23.svg"
             ]
-        }
+        },
+        "pdftools.json"
     ],
     "cleanup": [
 	"/share/doc",
